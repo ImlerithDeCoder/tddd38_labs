@@ -26,7 +26,7 @@ include_directories(src)
 # file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp" "tester/*.cpp")
 
 add_executable(reduce "./reduce.cpp")
-
+add_executable(factorial "./factorial.cpp")
 
 include(FetchContent)
 
