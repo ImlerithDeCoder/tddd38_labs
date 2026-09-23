@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENTIONS OFF)
 
 # säger att den ska bygga degub som standrar, om ingent annat sägs
 if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Debug CACHE STRING "välj byggtyp!" FORCE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "valde defaut som byggty" FORCE)
 endif()
 
 # denna tvingar compile_command.json till initellisece eller lsp
@@ -23,10 +23,11 @@ if (CMAKE_EXPORT_COMPILE_COMMANDS)
 endif()
 
 include_directories(src)
-# file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp" "tester/*.cpp")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp" "tester/*.cpp")
 
 add_executable(reduce "./reduce.cpp")
 add_executable(factorial "./factorial.cpp")
+add_executable(serialization "./serialization.cpp")
 
 include(FetchContent)
 
