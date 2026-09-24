@@ -25,9 +25,12 @@ endif()
 include_directories(src)
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp" "tester/*.cpp")
 
-add_executable(reduce "./reduce.cpp")
-add_executable(factorial "./factorial.cpp")
-add_executable(serialization "./serialization.cpp")
+add_executable(sem3_reduce "./sem3/reduce.cpp")
+add_executable(sem3_factorial "./sem3/factorial.cpp")
+add_executable(sem3_serialization "./sem3/serialization.cpp")
+
+add_executable(sem4_factorial "./sem4/factorial.cpp")
+
 
 include(FetchContent)
 
