@@ -32,6 +32,9 @@ add_executable(sem3_serialization "./sem3/serialization.cpp")
 add_executable(sem4_factorial "./sem4/factorial.cpp")
 add_executable(sem4_type_traits "./sem4/type_traits.cpp")
 
+add_executable(sem4_tracker "sem4/tracker.cpp")
+
+
 include(FetchContent)
 
 # Definiera var Catch2 ska laddas ner ifrån
