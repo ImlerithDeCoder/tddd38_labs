@@ -25,13 +25,14 @@ endif()
 include_directories(src)
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp" "tester/*.cpp")
 
+# sem3
 add_executable(sem3_reduce "./sem3/reduce.cpp")
 add_executable(sem3_factorial "./sem3/factorial.cpp")
 add_executable(sem3_serialization "./sem3/serialization.cpp")
 
-add_executable(sem4_factorial "./sem4/factorial.cpp")
+# sem4
+add_executable(sem4_fibonacci "./sem4/fibonacci.cpp")
 add_executable(sem4_type_traits "./sem4/type_traits.cpp")
-
 add_executable(sem4_tracker "sem4/tracker.cpp")
 
 

@@ -13,7 +13,10 @@ public:
   static int counter;
 
   template <typename... Ts>
-  Tracker(Ts... args);
+  //Tracker(Ts... args);
+  Tracker(Ts&&... t);
+
+  ~Tracker();
 };
 
 template <typename T>
@@ -21,8 +24,10 @@ int Tracker<T>::counter{0};
 
 template <typename T>
 template <typename... Ts>
-Tracker<T>::Tracker(Ts... args) : T(args...) 
-{
+//template <typename... Ts>
+//Tracker<T>::Tracker(Ts... args) : T(args...)
+Tracker<T>::Tracker(Ts&&... t) : T(std::forward<Ts>(t)...) {
+
   // every time we use the constructor of T increment the counter!
   counter++;
 };
@@ -31,6 +36,11 @@ template <typename T>
 int count() 
 {
   return Tracker<T>::counter;
+}
+
+template <typename T>
+Tracker<T>::~Tracker(){
+  counter--;
 }
 //---------------------------------------------------------------------------
 
@@ -63,7 +73,7 @@ int main()
   using std::string;
 
   cout << count<string>() << endl;
-  
+
   Tracker<string> str1{};
   str1 += "str1";
   for (char c : str1)
@@ -83,5 +93,4 @@ int main()
   }
   cout << count<Hello_Worlder>() << endl;
   cout << count<string>() << endl;
-  
 }
