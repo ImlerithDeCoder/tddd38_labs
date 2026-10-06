@@ -20,13 +20,18 @@ int index_of(Pack<Ts...> pack) {
     return contains<T>(pack) ? index_of_helper<T>(pack) : -1;
 }
 
+template <typename T>
+int index_of(Pack<>) {
+    return -1;
+}
+
 template <typename T, typename First, typename... Ts>
 int index_of_helper(Pack<First, Ts...> pack) {
-    return std::is_same_v<T, First> ? 0 : 1 + index_of<T>(Pack<Ts...>{});
+    return std::is_same_v<T, First> ? 0 : 1 + index_of_helper<T>(Pack<Ts...>{});
 }
 
 template <typename T>
-int index_of(Pack<>) {
+int index_of_helper(Pack<>) {
     return -1;
 }
 
