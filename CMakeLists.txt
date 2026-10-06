@@ -34,7 +34,7 @@ add_executable(sem3_serialization "./sem3/serialization.cpp")
 add_executable(sem4_fibonacci "./sem4/fibonacci.cpp")
 add_executable(sem4_type_traits "./sem4/type_traits.cpp")
 add_executable(sem4_tracker "sem4/tracker.cpp")
-
+add_executable(sem4_pack "sem4/pack.cpp")
 
 include(FetchContent)
 
