@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem4_type_traits.dir/link.d CMakeFiles/sem4_type_traits.dir/sem4/type_traits.cpp.o -o sem4_type_traits

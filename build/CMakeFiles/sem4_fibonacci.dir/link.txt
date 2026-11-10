@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem4_fibonacci.dir/link.d CMakeFiles/sem4_fibonacci.dir/sem4/fibonacci.cpp.o -o sem4_fibonacci

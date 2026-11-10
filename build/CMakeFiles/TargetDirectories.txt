@@ -1,0 +1,10 @@
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem3_reduce.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem3_factorial.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem3_serialization.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem4_fibonacci.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem4_type_traits.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem4_tracker.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem4_pack.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/sem5_sfine.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/edit_cache.dir
+/home/imlerith/edu/code/tddd38-avancerad_programering_med_c++/tddd38_labs/build/CMakeFiles/rebuild_cache.dir

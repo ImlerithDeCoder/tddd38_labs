@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/serialization.dir/link.d CMakeFiles/serialization.dir/serialization.cpp.o -o serialization

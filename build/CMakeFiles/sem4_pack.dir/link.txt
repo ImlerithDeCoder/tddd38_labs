@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem4_pack.dir/link.d CMakeFiles/sem4_pack.dir/sem4/pack.cpp.o -o sem4_pack

@@ -36,6 +36,7 @@ add_executable(sem4_type_traits "./sem4/type_traits.cpp")
 add_executable(sem4_tracker "sem4/tracker.cpp")
 add_executable(sem4_pack "sem4/pack.cpp")
 
+add_executable(sem5_sfine "sem5/sfine_overload_prio.cpp")
 include(FetchContent)
 
 # Definiera var Catch2 ska laddas ner ifrån
