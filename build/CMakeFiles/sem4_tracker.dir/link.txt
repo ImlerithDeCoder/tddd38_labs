@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem4_tracker.dir/link.d CMakeFiles/sem4_tracker.dir/sem4/tracker.cpp.o -o sem4_tracker

@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem3_factorial.dir/link.d CMakeFiles/sem3_factorial.dir/sem3/factorial.cpp.o -o sem3_factorial

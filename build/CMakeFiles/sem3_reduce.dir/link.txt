@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem3_reduce.dir/link.d CMakeFiles/sem3_reduce.dir/sem3/reduce.cpp.o -o sem3_reduce

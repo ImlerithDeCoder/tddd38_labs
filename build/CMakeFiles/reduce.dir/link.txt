@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/reduce.dir/link.d CMakeFiles/reduce.dir/reduce.cpp.o -o reduce

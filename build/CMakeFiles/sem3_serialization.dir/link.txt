@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/sem3_serialization.dir/link.d CMakeFiles/sem3_serialization.dir/sem3/serialization.cpp.o -o sem3_serialization
