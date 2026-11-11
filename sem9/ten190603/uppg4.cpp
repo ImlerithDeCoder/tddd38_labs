@@ -105,7 +105,7 @@ int main()
   }
 
   // for each denominator we want to divided it with a factor in factors
-  for (int i{0}; i < denominators.size(); ++i)
+  /*for (int i{0}; i < denominators.size(); ++i)
   {
 
     // find a factor that is divisible by the current denominator
@@ -117,18 +117,34 @@ int main()
         break;
       }
     }
-    
+
     // divide the found factor
     factors[j] /= denominators[i];
     denominators[i] = 1;
-  }
+  }*/
+  std::transform(denominators.begin(), denominators.end(), denominators.begin(),
+                 [&factors](int denomi) {
+                auto same_factor_it = std::find_if(factors.begin(),
+                                                   factors.end(),
+                                                   [denomi](int fac) {return fac % denomi == 0;});
+
+                if (same_factor_it != factors.end()) {
+                  *same_factor_it /= denomi;
+                }
+                return 1;
+  });
 
   // multiply all factors together
   int result{1};
-  for (int i{0}; i < factors.size(); ++i)
+  /*for (int i{0}; i < factors.size(); ++i)
   {
     result *= factors[i];
-  }
+  }*/
+  std::transform(factors.begin(), 
+                 factors.end(), 
+                 factors.begin(), 
+                 [&result](int fac) {return result *= fac;}
+  );
 
   // print the result
   cout << result << endl;
