@@ -3,6 +3,8 @@
 #include <utility>
 #include <string>
 #include <vector>
+#include <new>
+#include <type_traits>
 
 
 /* Implement Optional here */
@@ -10,11 +12,15 @@ template <typename T>
 class Optional {
 public:
   Optional() = default;
-  Optional(T&& i) : item{ std::forward<T>(i) } {}; // vad var min tanke me denne? tänker att denna nakar sence, eller att ha vara T i, för att de ska bli en kopia av
 
-  Optional(Optional const& other) { // copy constructor, right?
+  template <typename U, typename = std::enable_if_t<!std::is_same_v<std::remove_cvref_t<U>, Optional>>>
+  Optional(U&& i) { // default constructor, r-value och l-value
+    set_item(std::forward<U>(i));
+  }
+
+  Optional(Optional<T> const& other) { // copy constructor, right?
     if (other.valid) {
-      set_item(other.item);
+      set_item(other.get_value());
     }
   }
 
@@ -22,14 +28,22 @@ public:
     clear();
   }
 
- Optional operator=(Optional const& other) { // copy assigment operator
-    if (other.valid) {
-      set_item(other.item);
+ Optional<T>& operator=(Optional<T> const& other) { // copy assigment operator
+    if (this == &other) {
+      return *this;
     }
+    if (other.valid) {
+      set_item(other.get_value());
+    } else {
+      clear();
+    }
+    return *this;
   }
 
-  T& operator=(T&& i) {
-    set_item(i);
+  template <typename U, typename = std::enable_if_t<!std::is_same_v<std::remove_cvref_t<U>, Optional>>>
+  Optional& operator=(U&& i) {
+    set_item(std::forward<U>(i));
+    return *this;
   }
 
   bool is_valid() {
@@ -38,27 +52,31 @@ public:
 
 
   T& get_value() {
-    return std::launder(item); // here we need std::launder because we need to cast the char pointer to a T pointer? right?
+    return *std::launder(reinterpret_cast<T*>(item)); // here we need std::launder because we need to cast the char pointer to a T pointer? right?
   }
+
+  T const& get_value() const {
+    return *std::launder(reinterpret_cast<T const*>(item));
+  }
+
 
  void clear() {
     if (valid) {
-      std::destroy_at(std::launder(dynamic_cast<T*>(item)));
+      std::destroy_at(std::launder(reinterpret_cast<T*>(item)));
+      valid = false;
     }
   }
 
 private:
-  void set_item(T&& i) {
+
+  template <typename U>
+  void set_item(U&& i) {
     clear();
-    new (item) T(std::forward<T>(i)); // kallar T konstruktor av i
+    new (item) T(std::forward<U>(i)); // kallar T konstruktor av i
     valid = true;
   }
 
-  union {
-    alignas(T) char item[sizeof(T)];
-    bool empty{ true };
-  };
-
+  alignas(T) char item[sizeof(T)];
   bool valid{ false };
 };
 
@@ -86,7 +104,7 @@ int main()
         assert( !o.is_valid() );
     }
 
-  /*
+  
     {
         // save a large std::string
         Optional<std::string> o { std::string(1000, '-') };
@@ -154,5 +172,5 @@ int main()
 
         assert( !o4.is_valid() );
     }
-  */
+
 }
